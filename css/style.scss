@@ -1,0 +1,441 @@
+// Import standard-setup partial
+@import "standard-setup";
+
+// Colour palette
+// http://www.colorion.co/palette/702
+$light-sea-green: #1cb0bc; // rgb(28, 176, 188)
+$darker-sea-green: #158690;
+$white: #fff; // rgb(255, 255, 255)
+$yellow: #fef201; // rgb(254, 242, 1)
+$teal: #178188; // rgb(23, 129, 136)
+$dark-teal: #10585c;
+$light-cyan: #cde9e9; // rgb(205, 233, 233)
+
+// Siren colours
+$siren-blue: #0b0beb; // rgb(11, 11, 235)
+$siren-red: #eb0b0b; // rgb(235, 11, 11)
+
+// Fonts
+// font-family: "Roboto", sans-serif;
+// font-family: "Droid Sans Mono", monospace;
+
+// Global styles
+body {
+	background-color: $light-cyan;
+}
+button,
+input[type=submit] {
+	background-color: $dark-teal;
+	border: 2px solid transparent;
+	border-radius: 5px;
+	color: $yellow;
+	font-family: "Roboto", sans-serif;
+	font-size: 2.4rem;
+	letter-spacing: 2px;
+	margin: 0 auto;
+	padding: 10px 25px;
+	text-transform: uppercase;
+}
+button,
+input,
+input[type=submit] {
+	border: 2px solid transparent;
+	&:focus {
+		outline: 2px solid $yellow;
+	}
+	&:hover {
+		border: 2px solid $yellow;
+		border-radius: 5px;
+	}
+}
+label {
+	border: 2px solid transparent;
+}
+label:hover {
+	background-color: $dark-teal;
+	border: 2px solid $yellow;
+	border-radius: 5px;
+	color: $yellow;
+	outline: 2px solid $yellow;
+}
+input:focus + label {
+	background-color: $dark-teal;
+	border: 2px solid $yellow;
+	border-radius: 5px;
+	color: $yellow;
+	outline: 2px solid $yellow;
+}
+h1 {
+	color: $light-sea-green;
+	font-size: 5.0rem;
+	letter-spacing: 5px;
+	max-width: 374px;
+	text-transform: uppercase;
+	span {
+		opacity: 0;
+	}
+	.color-emphasis {
+		color: $darker-sea-green;
+	}
+}
+input,
+select {
+	background-color: transparent;
+	border: 2px solid transparent;
+	border-bottom: 2px solid $teal;
+}
+input,
+label,
+option,
+select {
+	color: $dark-teal;
+}
+input,
+label,
+p,
+select {
+	font-size: 1.8rem;
+	letter-spacing: 1px;
+}
+p {
+	color: $teal;
+}
+.container {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 10px;
+}
+// Application begins by hiding all question/answer sections
+.age-options,
+.sex-options,
+.destination-options,
+.severity-options,
+input[type=submit],
+.passport {
+	opacity: 0;
+	visibility: hidden;
+}
+.formative-id,
+.loading-screen,
+.final-id {
+	display: none;
+	opacity: 0;
+}
+// Phase 1
+.start-screen {
+	height: 100vh;
+	text-align: center;
+	// Flexbox
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.start-text {
+	height: 100%;
+	// Flexbox
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	p {
+		opacity: 0;
+		&:nth-child(4) {
+			font-style: italic;
+			font-weight: bold;
+		}
+	}
+}
+#start-btn {
+	opacity: 0;
+}
+.start-img {
+	margin: 0 auto;
+	max-width: 400px;
+	// Positioning
+	position: relative;
+}
+.blue-siren,
+.red-siren {
+	border-radius: 10px;
+	opacity: 0;
+	// Dimensions
+	height: 100%;
+	width: 37%;
+	// Positioning
+	position: absolute;
+	bottom: 0;
+}
+.blue-siren {
+	background-color: $siren-blue;
+	// Positioning
+	left: 0;
+}
+.red-siren {
+	background-color: $siren-red;
+	// Positioning
+	right: 0;
+}
+// Phase 2
+form {
+	display: none;
+	height: 100vh;
+	.container {
+		height: 100%;
+		// Flexbox
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+.selected-answer {
+	background-color: $dark-teal;
+	border-radius: 5px;
+	color: $yellow;
+}
+.sex-options {
+	label {
+		border-left: 2px solid $teal;
+	}
+}
+
+.age-options {
+	p {
+		display: inline-block;
+	}
+	input {
+		margin: 0 10px;
+		text-align: center;
+		width: 50px;
+		&:focus {
+			outline: 2px solid $yellow;
+		}
+		&:hover {
+			border: 2px solid $yellow;
+		}
+	}
+	button {
+		margin-left: 5px;
+	}
+}
+#age-check {
+	font-size: 1.5rem;
+	padding: 5px;
+	width: auto;
+}
+.sex-options {
+	display: flex;
+	justify-content: space-between;
+	p {
+		width: 25%;
+	}
+	label {
+		padding: 2px 10px;
+		text-align: center;
+	}
+}
+.destination-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+.country-option {
+	margin-bottom: 5px;
+	width: 50%;
+	// Flexbox
+	display: flex;
+	label {
+		border-left: 2px solid $dark-teal;
+		padding: 0 0 0 5px;
+		text-align: center;
+		width: 100%;
+	}
+}
+select {
+	font-style: italic;
+	&:focus {
+		outline: 2px solid $yellow;
+	}
+	&:hover {
+		border: 2px solid $yellow;
+	}
+	option {
+		font-style: normal;
+	}
+	option[value=default] {
+		font-style: italic;
+	}
+}
+input[type=submit] {
+	font-size: 1.5rem;
+	max-width: 100%;
+	padding: 10px;
+}
+// Phase 3
+.formative-instructions {
+	p {
+		text-align: center;
+	}
+	p:nth-of-type(1) {
+		margin: 40px 0;
+	}
+	p:nth-of-type(2) {
+		margin-bottom: 40px;
+	}
+	button {
+		cursor: auto;
+	}
+}
+h2 {
+	color: $light-sea-green;
+	font-size: 3.2rem;
+	letter-spacing: 5px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.refresh-btn {
+	border-radius: 0;
+	margin: 0;
+	padding: 2px 8px;
+}
+svg {
+	fill: $yellow;
+	height: 15px;
+	width: 15px;
+}
+.formative-content {
+	display: flex;
+	flex-direction: column;
+	div:nth-of-type(4) {
+		border-bottom: 1px solid $teal;
+	}
+}
+.id-field {
+	background-color: $white;
+	box-shadow: 3px 3px 3px black;
+	margin-bottom: 25px;
+	padding: 10px;
+}
+.field-type {
+	margin-bottom: 5px;
+	// Flexbox
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.new-face {
+	width: 175px;
+}
+.new-info {
+	font-size: 3.0rem;
+	text-transform: capitalize;
+}
+#accept {
+	font-size: 1.8rem;
+	margin-top: 20px;
+	max-width: 100%;
+	padding: 10px;
+}
+// Phase 4
+.loading-screen {
+	.container {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+.loading-text {
+	margin-bottom: 25px;
+	text-align: left;
+	&:after {
+		animation: ellipsis steps(4,end) 1500ms infinite;
+		// -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+		content: "\2026"; // ASCII code for the ellipsis character
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: bottom;
+		width: 0px;
+	}
+}
+@keyframes ellipsis {
+	to {
+	width: 1.25em;
+	}
+}
+// Phase 5
+.final-id {
+	.container {
+		max-width: 600px;
+	}
+	h2 {
+		margin-bottom: 50px;
+	}
+}
+.passport {
+	background-color: $white;
+	box-shadow: 5px 5px 10px black;
+	margin-bottom: 50px;
+	padding: 5px;
+	// Flexbox
+	display: flex;
+	flex-direction: column;
+}
+.pp-section {
+	margin-bottom: 10px;
+}
+.pp-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	p {
+		text-transform: uppercase;
+	}
+}
+.pp-left {
+	img {
+		margin: 0 auto;
+		height: 200px;
+	}
+}
+.pp-title {
+	color: black;
+	font-size: 1.2rem;
+}
+#pp-country {
+	color: black;
+}
+.pp-field-title {
+	color: black;
+	font-size: 1.2rem;
+}
+.pp-field-info {
+	color: black;
+	font-family: "Droid Sans Mono", monospace;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.pp-info {
+	display: flex;
+	justify-content: space-between;
+}
+.pp-sex-birthplace {
+	display: flex;
+}
+.pp-sex {
+	margin-right: 25px;
+}
+#reset-btn {
+	display: block;
+	font-size: 1.5rem;
+}
+.farewell-message {
+	margin-bottom: 50px;
+	p {
+		font-size: 2.4rem;
+		text-align: center;
+	}
+	span {
+		color: $dark-teal;
+		text-transform: capitalize;
+	}
+}
+// Import media-query partial
+@import "media-query";

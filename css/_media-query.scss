@@ -1,0 +1,14 @@
+@media screen and (min-width: 600px) {
+	.pp-top {
+		justify-content: space-around;
+	}
+	.pp-main {
+		display: flex;
+	}
+	.pp-left {
+		width: 35%;
+	}
+	.pp-right {
+		width: 65%;
+	}
+}

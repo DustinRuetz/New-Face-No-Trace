@@ -1,0 +1,37 @@
+.clearfix:after {
+	clear: both; 
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+* {
+	box-sizing: border-box;
+}
+html, body,
+figure, form,
+h1, h2, h3, h4, h5, h6,
+p {
+	margin: 0;
+}
+html {
+	font-family: "Roboto", serif;
+	font-size: 62.5%;
+}
+button,
+input[type=submit],
+label {
+	cursor: pointer;
+}
+input[type=radio] {
+	opacity: 0;
+	width: 1px;
+}
+img {
+	display: block;
+	max-width: 100%;
+}
+select {
+	max-width: 100%;
+}
