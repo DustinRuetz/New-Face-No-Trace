@@ -82,17 +82,17 @@ $("#age-check").on("click", function(event) {
 	// 6) If 80+
 	// 7) ELSE between 18-79, store it in a new .userAge property
 	if (userAgeInput === "") {
-		console.log("You didn't enter your age. Hurry up, this is no time to be messing around.");
+		alert("You didn't enter your age. Hurry up, this is no time to be messing around.");
 	} else if(isNaN(userAgeInput)) {
-		console.log('"' + userAgeInput + '"' + " is not a number. Hurry up and try again, this is no time to be messing around.");
+		alert('"' + userAgeInput + '"' + " is not a number. Hurry up and try again, this is no time to be messing around.");
 	} else if (userAgeInput < 0) {
-		console.log("You're " + userAgeInput + " years old? Hurry up and try again, this is no time to be messing around.");
+		alert("You're " + userAgeInput + " years old? Hurry up and try again, this is no time to be messing around.");
 	} else if (userAgeInput >= 0 & userAgeInput <= 9) {
-		console.log("You're " + userAgeInput + "? Most courts won't convict you if you're less than 10 years old. You're probably just a regular kid who did something dumb. Exception that proves the rule: Texas. Really hope you're not from Texas.");
+		alert("You're " + userAgeInput + "? Most courts won't convict you if you're less than 10 years old. You're probably just a regular kid who did something dumb. Exception that proves the rule: Texas. Really hope you're not from Texas.");
 	} else if (userAgeInput >= 10 & userAgeInput < 18) {
-		console.log("You look less than 18 years old? Sorry, but no number of fake IDs can get you out of this one. Prepare for juvey.");
+		alert("You look less than 18 years old? Sorry, but no number of fake IDs can get you out of this one. Prepare for juvey.");
 	} else if (userAgeInput >= 80) {
-			console.log("You're kidding, right? Sorry, but you're way too old to be a wanted fugitive.");
+			alert("You're kidding, right? Sorry, but you're way too old to be a wanted fugitive.");
 	} else {
 		newIdentity.userAge = userAgeInput;
 		// Show the second question (sex)
