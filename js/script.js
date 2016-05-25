@@ -47,9 +47,10 @@ newIdentity.init = function() {
 		$("h1 span:nth-child(2)").fadeTo(600, 1.0, function() {
 			$("h1 span:nth-child(3)").fadeTo(600, 1.0, function() {
 				$("h1 span:nth-child(4)").fadeTo(600, 1.0, function() {
-					// Fade-in the rest of the text
+					// Fade-in the rest of the content
 					$(".start-text p").fadeTo(800, 1.0);
 					$("#start-btn").fadeTo(800, 1.0);
+					$("#information").fadeTo(800, 1.0);
 				});
 			});
 		});
@@ -61,6 +62,7 @@ $("#start-btn").on("click", function() {
 	// Fade-out the start screen, then remove it from the page
 	$(".start-screen").fadeTo(200, 0.0, function() {
 		$(".start-screen").hide();
+		$("#information").hide();
 		// Display the form, then show the first question (age)
 		$("form").show();
 		$(".age-options").css("visibility", "visible");
@@ -320,6 +322,7 @@ $("#accept").on("click", function(event) {
 			$(".final-id").fadeTo(400, 1.0, function() {
 				$(".passport").css("visibility", "visible");
 				$(".passport").fadeTo(400, 1.0);
+				$("#information").show();
 			});
 		});
 	});
@@ -328,4 +331,14 @@ $("#accept").on("click", function(event) {
 // Step 11: User clicks "My new identity has been compromised"
 $("#reset-btn").on("click", function() {
 	window.location.reload(false);
+});
+
+// Miscellaneous: User clicks "information" button
+$("#information").on("click", function() {
+	$(".about-section").css("display", "flex");
+});
+
+// Miscellaneous: User clicks "close" button
+$("#close").on("click", function() {
+	$(".about-section").hide();
 });

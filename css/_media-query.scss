@@ -1,4 +1,8 @@
 @media screen and (min-width: 600px) {
+	.main-container,
+	.container {
+		max-width: 600px;
+	}
 	.pp-top {
 		justify-content: space-around;
 	}
