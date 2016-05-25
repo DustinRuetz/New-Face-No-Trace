@@ -207,7 +207,6 @@ newIdentity.getData = function() {
 	// When the request is resolved, store an array of objects
 	.then(function(data) {
 		newIdentity.fakePeople = data.results;
-		console.log(newIdentity.fakePeople);
 		// Call the .randomIndex and .generateFirstFake methods
 		newIdentity.randomIndex();
 		newIdentity.generateFirstFake();
